@@ -1,10 +1,17 @@
 # MyStoreApp
 
+This Application is an e-commerce app to shop and buy the available items, it contains main features such as 1- displaying the available products for the user to choose and add to their cart (in various quantities)
+2- when the user clicks on an item it displays more information about that item
+3- User can view their cart which includes the products that the user has added to their cart
+4- User can checkout using the checkout form, which collects information about the user (e.g., name, address, payment details, etc.)
+5- Order confirmation page which shows the outcome after the user completes the checkout process (i.e., submits the checkout form) will by displayed
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+-This app uses bootstrap@3 so make sure you have it by running: npm install --save bootstrap@3.
+-Run npm install to install all the dependencies.
+-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

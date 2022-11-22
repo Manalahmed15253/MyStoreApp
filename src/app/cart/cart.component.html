@@ -1,0 +1,32 @@
+<div class="PageContainer">
+    <div class="cart-container">
+        <div class="cart-item" *ngFor="let cartItem of cartProducts">
+            <div class="cart-item-details">
+                <img [src]="cartItem.product.url" class="product-image" [alt]="cartItem.product.name">
+                <p>{{cartItem.product.name}}</p>
+                <p>${{cartItem.product.price}}</p>
+                <br>
+                <p>Amount:<input class="number-input" type="number" name="amount" [(ngModel)]="cartItem.amount" min="1" max="10" (change)="onChange(cartItem.amount)"></p> 
+            </div>
+        </div>
+        <h1 *ngIf="totalMoney">Total: ${{totalMoney}}</h1>
+    </div>
+    <div *ngIf="cartProducts.length>0" style="margin-left: 100px;">
+        <form #f="ngForm" class="form-margin" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="customername">Full name</label>
+                <input placeholder="(minimum 3 characters)" type="text" class="form-control" name="customername" required minlength="3" pattern="[a-zA-Z ]*" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input placeholder="(minimum 6 characters)" type="text" class="form-control" name="address" required minlength="6" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="credit">Credit card number</label>
+                <input placeholder="(16-digit number)" type="text" class="form-control" name="credit" required minlength="16" maxlength="16" pattern="[0-9]*" ngModel>
+            </div>
+            <h6>We'll never share your payment details with anyone else</h6>
+            <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Submit</button>
+        </form>
+    </div>
+</div>

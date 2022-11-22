@@ -1,0 +1,10 @@
+<div class="prodcut-container">
+    <a [routerLink]="['/','products',product.id]"><img [src]="product.url" class="product-image" [alt]="product.name"></a>
+    <p>{{product.name}}</p>
+    <p>${{product.price}}</p>
+    <select class="select-input form-select" [(ngModel)]="selectedOption">
+        <option *ngFor="let number of amout" [ngValue]="number"> {{ number }}</option>
+    </select>
+    <br>
+    <button class="btn btn-primary" (click)="OnAddToCart()">Add to cart</button>
+</div>
