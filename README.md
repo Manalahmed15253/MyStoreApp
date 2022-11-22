@@ -9,9 +9,9 @@ This Application is an e-commerce app to shop and buy the available items, it co
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
 ## Development server
--This app uses bootstrap@3 so make sure you have it by running: npm install --save bootstrap@3.
--Run npm install to install all the dependencies.
--Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- This app uses bootstrap@3 so make sure you have it by running: npm install --save bootstrap@3.
+- Run npm install to install all the dependencies.
+- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
