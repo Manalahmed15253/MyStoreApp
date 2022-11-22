@@ -1,10 +1,10 @@
 # MyStoreApp
 
-This Application is an e-commerce app to shop and buy the available items, it contains main features such as 1- displaying the available products for the user to choose and add to their cart (in various quantities)
-2- when the user clicks on an item it displays more information about that item
-3- User can view their cart which includes the products that the user has added to their cart
-4- User can checkout using the checkout form, which collects information about the user (e.g., name, address, payment details, etc.)
-5- Order confirmation page which shows the outcome after the user completes the checkout process (i.e., submits the checkout form) will by displayed
+This Application is an e-commerce app to shop and buy the available items, it contains main features such as - displaying the available products for the user to choose and add to their cart (in various quantities)
+- when the user clicks on an item it displays more information about that item
+- User can view their cart which includes the products that the user has added to their cart
+- User can checkout using the checkout form, which collects information about the user (e.g., name, address, payment details, etc.)
+- Order confirmation page which shows the outcome after the user completes the checkout process (i.e., submits the checkout form) will by displayed
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
