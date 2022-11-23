@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CartService } from '../cart.service';
 import { cartItem } from '../cartItem.model';
 import { Subscription } from 'rxjs';
@@ -34,8 +34,12 @@ export class CartComponent implements OnInit,OnDestroy {
     this.subscription.unsubscribe();
   }
   onChange(amount:number){
-    console.log(amount);
     this.totalMoney = this.cartService.totalMoney();
+    alert("You've changed the amount!");
+  }
+  onRemove(name:string,id:number){
+    this.cartService.removeItem(id);
+    alert("You've removed "+name+" from cart!");
   }
   onSubmit(){
     this.username = this.form.value.customername;
@@ -44,6 +48,7 @@ export class CartComponent implements OnInit,OnDestroy {
     this.cartService.cartOwner(this.username,this.totalMoney);
     this.router.navigate(['confirmation']);
   }
+
 
 
 

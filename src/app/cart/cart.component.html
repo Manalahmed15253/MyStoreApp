@@ -6,7 +6,8 @@
                 <p>{{cartItem.product.name}}</p>
                 <p>${{cartItem.product.price}}</p>
                 <br>
-                <p>Amount:<input class="number-input" type="number" name="amount" [(ngModel)]="cartItem.amount" min="1" max="10" (change)="onChange(cartItem.amount)"></p> 
+                <p>Amount:<input class="number-input" type="number" name="amount" [(ngModel)]="cartItem.amount" min="1" max="10" (ngModelChange)="onChange(cartItem.amount)"></p>
+                <button class="btn btn-primary" (click)="onRemove(cartItem.product.name,cartItem.product.id)">Remove from cart</button>
             </div>
         </div>
         <h1 *ngIf="totalMoney">Total: ${{totalMoney}}</h1>
@@ -15,15 +16,18 @@
         <form #f="ngForm" class="form-margin" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="customername">Full name</label>
-                <input placeholder="(minimum 3 characters)" type="text" class="form-control" name="customername" required minlength="3" pattern="[a-zA-Z ]*" ngModel>
+                <input placeholder="(minimum 3 characters)" type="text" class="form-control" name="customername" #customername="ngModel" required minlength="3" pattern="[a-zA-Z ]*" ngModel>
+                <span style="color:red;" class="help-block" *ngIf="customername.invalid && customername.touched">Please enter a valid name!</span>
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
-                <input placeholder="(minimum 6 characters)" type="text" class="form-control" name="address" required minlength="6" ngModel>
+                <input placeholder="(minimum 6 characters)" type="text" class="form-control" name="address" #address="ngModel" required minlength="6" ngModel>
+                <span style="color:red;" class="help-block" *ngIf="address.invalid && address.touched">Please enter a valid address!</span>
             </div>
             <div class="form-group">
                 <label for="credit">Credit card number</label>
-                <input placeholder="(16-digit number)" type="text" class="form-control" name="credit" required minlength="16" maxlength="16" pattern="[0-9]*" ngModel>
+                <input placeholder="(16-digit number)" type="text" class="form-control" name="credit" #credit="ngModel" required minlength="16" maxlength="16" pattern="[0-9]*" ngModel>
+                <span style="color:red;" class="help-block" *ngIf="credit.invalid && credit.touched">Please enter a valid credit card number!</span>
             </div>
             <h6>We'll never share your payment details with anyone else</h6>
             <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Submit</button>

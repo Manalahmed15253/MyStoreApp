@@ -22,9 +22,10 @@ export class CartService {
     this.cartProducts.push(cartItem);
     this.cartItems$.next(this.cartProducts);
     this.organizeCart();
+    alert(product.name+" added to cart with a quantity of ("+amount+")!");
   }
   organizeCart():void{
-    this.cartProducts.sort((a, b) => a.product.id < b.product.id ? -1 : a.product.id > b.product.id ? 1 : 0)
+    this.cartProducts.sort((a, b) => a.product.id < b.product.id ? -1 : a.product.id > b.product.id ? 1 : 0);
     this.cartItems$.next(this.cartProducts);
     console.log(this.cartProducts);
     for(let i=0;i<this.cartProducts.length-1;i++)
@@ -53,7 +54,11 @@ export class CartService {
   cartOwner(username:string,totalMoney:number){
     this.username = username;
     this.total = totalMoney;
-    
+  }
+  removeItem(id:number){
+    const index = this.cartProducts.findIndex(t => t.product.id === id);
+    this.cartProducts.splice(index, 1);
+    this.cartItems$.next(this.cartProducts);
   }
 
 }

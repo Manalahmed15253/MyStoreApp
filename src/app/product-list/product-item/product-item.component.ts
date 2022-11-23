@@ -1,8 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CartService } from 'src/app/cart.service';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/product.model';
-import { ProductService } from 'src/app/product.service';
+
 
 @Component({
   selector: 'app-product-item',
@@ -13,16 +11,17 @@ export class ProductItemComponent implements OnInit {
 
 
   @Input() product:Product;
+  @Output() addToCart = new EventEmitter<{product:Product,option:number}>();
   amout:number[]=[1,2,3,4,5,6,7,8,9,10]
   selectedOption:number=1;
 
-  constructor(private cartService:CartService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   OnAddToCart(){
-    this.cartService.addToCart(this.product,this.selectedOption);
+    this.addToCart.emit({product:this.product,option:this.selectedOption});
   }
 
 }
